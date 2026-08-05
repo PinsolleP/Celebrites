@@ -1,2 +1,2 @@
-public class Celebrites {
+public class Celebrites { 
 }
