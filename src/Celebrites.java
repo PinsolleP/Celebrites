@@ -17,9 +17,6 @@ public class Celebrites {
      * acquaintance.get(i) contient la liste des indices des personnes connues par la personne i.
      */
 
-    public static List<Integer> candidates;
-    public static List<Integer> celebrity;
-
 
     public static void initPersonnes() {
         /**
@@ -88,7 +85,7 @@ public class Celebrites {
          * @param candidates liste des indices des personnes candidates
          * @return une liste contenant les indices des célébrités
          */
-        celebrity = new ArrayList<>();
+        List<Integer> celebrity = new ArrayList<>();
 
         for (Integer candidate : candidates) {
             boolean knowAllCelebrity = true;
@@ -108,8 +105,8 @@ public class Celebrites {
 
     public static void main (String[]args){
         initPersonnes();
-        candidates = searchCandidates();
-        celebrity = searchCelebrities(candidates);
+        List<Integer> candidates = searchCandidates();
+        List<Integer> celebrity = searchCelebrities(candidates);
         System.out.println("liste des célébrités participants a la fêtes :");
         for (Integer c : celebrity){
             System.out.println(name.get(c));
