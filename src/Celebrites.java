@@ -1,15 +1,31 @@
 import java.util.*;
 
 public class Celebrites {
+    /**
+     * Classe permettant de rechercher les célébrités d'un groupe de personnes.
+     * Une personne est représentée par son indice dans la liste des noms.
+     */
 
     public static List<String> name;
+    /**
+     * Liste contenant les noms des personnes.
+     * L'indice d'une personne correspond à son identifiant dans les listes d'acquaintance.
+     */
     public static List<List<Integer>> acquaintance;
+    /**
+     * Liste des relations d'acquaintance entre les personnes.
+     * acquaintance.get(i) contient la liste des indices des personnes connues par la personne i.
+     */
 
     public static List<Integer> candidates;
     public static List<Integer> celebrity;
 
 
     public static void initPersonnes() {
+        /**
+         * Initialise les personnes du groupe ainsi que leurs relations d'acquaintance.
+         * Chaque personne reçoit un indice utilisé dans les autres listes.
+         */
         name = new ArrayList<>();
         acquaintance = new ArrayList<>();
 
@@ -40,11 +56,17 @@ public class Celebrites {
     }
 
     public static List<Integer> searchCandidates() {
+        /**
+         * Recherche les personnes connues par tous les membres du groupe.
+         *
+         * @return une liste contenant les indices des personnes candidates au titre de célébrité
+         */
         List<Integer> candidates = new ArrayList<>();
 
         for (int i = 0; i < name.size(); i++) {
             boolean iscandidates = true;
 
+            // Une personne candidate n'est retenue que si elle connaît tous les autres candidats.
             for (int j = 0; j < acquaintance.size(); j++) {
                 if (j != i && !acquaintance.get(j).contains(i)) {
                     iscandidates = false;
@@ -59,6 +81,13 @@ public class Celebrites {
     }
 
     public static List<Integer> searchCelebrities(List<Integer> candidates) {
+        /**
+         * Recherche les vraies célébrités parmi les candidats.
+         * Une célébrité doit connaître toutes les autres personnes candidates.
+         *
+         * @param candidates liste des indices des personnes candidates
+         * @return une liste contenant les indices des célébrités
+         */
         celebrity = new ArrayList<>();
 
         for (Integer candidate : candidates) {
