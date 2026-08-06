@@ -1,27 +1,45 @@
-import com.sun.jmx.remote.internal.ArrayQueue;
-
 import java.util.*;
 
 public class Celebrites {
 
-    protected static List [][] personnes;
-    protected static List [] invites;
-    protected static List [] celebrites;
+    public static List<String> name;
+    public static List<List<Integer>> acquaintance;
+    
+    public static List<Integer> candidates;
+    public static List<Integer> celebrities;
 
-    public static void initpersonnes(){
-        personnes = new List[][] {
-                {Arrays.asList("1. Albert"),Arrays.asList(2, 5, 6)},
-                {Arrays.asList("2. Bénédicte"),Arrays.asList(3, 5, 6)},
-                {Arrays.asList("3. Christophe"),Arrays.asList(2, 4, 5, 6)},
-                {Arrays.asList("4. Delphine"),Arrays.asList(1, 2, 5, 6, 8)},
-                {Arrays.asList("5. Edouard"),Arrays.asList(6)},
-                {Arrays.asList("6. Françoise"),Arrays.asList(5)},
-                {Arrays.asList("7. Gaston"),Arrays.asList(2, 3, 5, 6, 8)},
-                {Arrays.asList("8. Heloise"),Arrays.asList(2, 4, 5, 6, 7)},
-        };
+    public static void initPersonnes() {
+        name = new ArrayList<>();
+        acquaintance = new ArrayList<>();
+
+        name.add("Albert");
+        acquaintance.add(Arrays.asList(1, 4, 5));
+
+        name.add("Bénédicte");
+        acquaintance.add(Arrays.asList(2, 4, 5));
+
+        name.add("Christophe");
+        acquaintance.add(Arrays.asList(1, 3, 4, 5));
+
+        name.add("Delphine");
+        acquaintance.add(Arrays.asList(0, 1, 4, 5, 7));
+
+        name.add("Edouard");
+        acquaintance.add(Arrays.asList(5));
+
+        name.add("Françoise");
+        acquaintance.add(Arrays.asList(4));
+
+        name.add("Gaston");
+        acquaintance.add(Arrays.asList(1, 2, 4, 5, 7));
+
+        name.add("Heloise");
+        acquaintance.add(Arrays.asList(1, 3, 4, 5, 6));
+
     }
-
 
     public static void main(String[] args) {
+        initPersonnes();
     }
-}
+    }
+
