@@ -46,3 +46,6 @@ des célébrités deviendrait alors vide.
 - Git / GitHub
 
 # Améliorations possibles
+
+- Utiliser une classe Personne
+- Faire des tests
