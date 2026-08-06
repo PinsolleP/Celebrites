@@ -4,7 +4,7 @@ public class Celebrites {
 
     public static List<String> name;
     public static List<List<Integer>> acquaintance;
-    
+
     public static List<Integer> candidates;
     public static List<Integer> celebrities;
 
@@ -38,8 +38,36 @@ public class Celebrites {
 
     }
 
+    public static List<Integer> searchCandidates(){
+        List<Integer> candidates = new ArrayList<>();
+
+        for (int i = 0 ; i < name.size() ; i ++){
+            boolean iscandidates = true;
+
+            for (int j = 0 ; j < acquaintance.size() ; j++ ){
+                    if (j != i && !acquaintance.get(j).contains(i)){
+                        iscandidates = false;
+                        break;
+                }
+            }
+            if (iscandidates){
+                candidates.add(i);
+            }
+        }
+        return candidates;
+    }
+
+    public static List<Integer> searchCelebrities(List<Integer> candidates){
+        List<Integer> 
+    }
+
     public static void main(String[] args) {
         initPersonnes();
+        candidates = searchCandidates();
+        for ( int c : candidates){
+            System.out.println(name.get(c));
+        }
+
     }
     }
 
