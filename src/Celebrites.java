@@ -81,7 +81,10 @@ public class Celebrites {
         initPersonnes();
         candidates = searchCandidates();
         celebrity = searchCelebrities(candidates);
-        System.out.println(celebrity);
+        System.out.println("liste des célébrités participants a la fêtes :");
+        for (Integer c : celebrity){
+            System.out.println(name.get(c));
+        }
         }
     }
 
