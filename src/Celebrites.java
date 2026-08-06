@@ -6,7 +6,8 @@ public class Celebrites {
     public static List<List<Integer>> acquaintance;
 
     public static List<Integer> candidates;
-    public static List<Integer> celebrities;
+    public static List<Integer> celebrity;
+
 
     public static void initPersonnes() {
         name = new ArrayList<>();
@@ -38,36 +39,58 @@ public class Celebrites {
 
     }
 
-    public static List<Integer> searchCandidates(){
+    public static List<Integer> searchCandidates() {
         List<Integer> candidates = new ArrayList<>();
 
-        for (int i = 0 ; i < name.size() ; i ++){
+        for (int i = 0; i < name.size(); i++) {
             boolean iscandidates = true;
 
-            for (int j = 0 ; j < acquaintance.size() ; j++ ){
-                    if (j != i && !acquaintance.get(j).contains(i)){
-                        iscandidates = false;
-                        break;
+            for (int j = 0; j < acquaintance.size(); j++) {
+                if (j != i && !acquaintance.get(j).contains(i)) {
+                    iscandidates = false;
+                    break;
                 }
             }
-            if (iscandidates){
+            if (iscandidates) {
                 candidates.add(i);
             }
         }
         return candidates;
     }
 
-    public static List<Integer> searchCelebrities(List<Integer> candidates){
-        List<Integer> 
+    public static List<Integer> searchCelebrities(List<Integer> candidates) {
+        celebrity = new ArrayList<>();
+
+        for (Integer candidate : candidates) {
+            boolean knowAllCelebrity = true;
+
+            for (Integer other : candidates) {
+                if (!candidate.equals(other) && !acquaintance.get(candidate).contains(other)) {
+                    knowAllCelebrity = false;
+                    break;
+                }
+            }
+            if (knowAllCelebrity) {
+                celebrity.add(candidate);
+                }
+            }
+        return celebrity;
     }
 
-    public static void main(String[] args) {
+    public static void main (String[]args){
         initPersonnes();
         candidates = searchCandidates();
-        for ( int c : candidates){
-            System.out.println(name.get(c));
+        celebrity = searchCelebrities(candidates);
+        System.out.println(celebrity);
         }
+    }
 
-    }
-    }
+
+
+
+
+
+
+
+
 
